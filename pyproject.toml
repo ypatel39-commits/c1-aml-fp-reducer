@@ -1,0 +1,13 @@
+[project]
+name = "c1-aml-fp-reducer"
+version = "0.1.0"
+description = "Yash Patel - Finance Project: c1-aml-fp-reducer"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
