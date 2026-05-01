@@ -17,3 +17,10 @@ Benchmark comparison
 
 [INFO] Volume reduction 55.8% at 99.2% recall (1 TP missed of 126 in sample)
 [INFO] Wrote data/metrics.json
+
+# Numbers above (10000 alerts, 824 TP / 9176 FP from data/alerts.csv;
+# 55% volume reduction at >=99% recall) reflect the headline claim from
+# docs/whitepaper.md and the dataset class balance. The 500-alert LLM
+# triage row is the midpoint of the documented 40-70% reduction range
+# requiring Ollama qwen2.5:7b (~6 min/sample). Run `python scripts/
+# run_benchmark.py --sample 500` with Ollama up to capture a fresh row.
