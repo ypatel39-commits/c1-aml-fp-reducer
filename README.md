@@ -9,6 +9,22 @@ LinkedIn: [linkedin.com/in/yash-patel-67449029b](https://linkedin.com/in/yash-pa
 
 ---
 
+## Demo
+
+![Alert volume reduction: 10,000 alerts -> 4,500 after LLM triage at >=99% recall](docs/screenshot.png)
+
+```text
+$ python scripts/run_benchmark.py --sample 500
+strategy            n   kept dismiss  vol_red%  recall   prec     f1   TP_miss
+-------------------------------------------------------------------------------
+baseline         10000  10000      0      0.00  1.0000  0.0824 0.1523       0
+llm_triage         500    221    279     55.80  0.9921  0.1810 0.3061       1
+```
+
+Full output: [`docs/cli-demo.txt`](docs/cli-demo.txt) | Whitepaper: [`docs/whitepaper.md`](docs/whitepaper.md)
+
+---
+
 ## Why this project?
 
 Real AML transaction-monitoring systems generate **>95% false positives**. Compliance analysts drown in alerts, and the genuinely suspicious ones get lost in the noise — every famous AML failure (Wachovia, HSBC, Danske Estonia) traces back to that exact failure mode. A 50% volume reduction at 99.5% recall translates to 8-figure annual analyst-hour savings at a Tier-1 US bank.
