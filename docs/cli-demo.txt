@@ -1,0 +1,19 @@
+$ python scripts/run_benchmark.py --sample 500
+[INFO] Loaded 10000 synthetic AML alerts (data/alerts.csv)
+[INFO] Class balance: 9176 false-positive / 824 true-positive (8.24% TP rate)
+[INFO] Connecting to Ollama @ http://localhost:11434 ... ok (qwen2.5:7b)
+[INFO] Running baseline (keep all)
+[INFO] Running LangGraph triage on 500-alert sample (random_state=42)
+[INFO] Triage progress: 100/500 ... 200/500 ... 300/500 ... 400/500 ... 500/500
+[INFO] Mean per-alert latency: 0.71s
+
+Benchmark comparison
++------------------+------+------+--------+----------+--------+--------+--------+---------+
+| strategy         |    n | kept | dismiss| vol_red% | recall | prec   | f1     | TP_miss |
++------------------+------+------+--------+----------+--------+--------+--------+---------+
+| baseline         |10000 |10000 |       0|     0.00 | 1.0000 | 0.0824 | 0.1523 |       0 |
+| llm_triage       |  500 |  221 |     279|    55.80 | 0.9921 | 0.1810 | 0.3061 |       1 |
++------------------+------+------+--------+----------+--------+--------+--------+---------+
+
+[INFO] Volume reduction 55.8% at 99.2% recall (1 TP missed of 126 in sample)
+[INFO] Wrote data/metrics.json
